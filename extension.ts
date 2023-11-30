@@ -32,8 +32,10 @@ export function activate(context: vscode.ExtensionContext) {
 
     // Register the command to the context menu
     vscode.window.registerTreeDataProvider('elixirFormat.formatFile', {
-        provideTreeData: () => [
-            // You can customize the tree item here if needed
+        getTreeItem: (element) => {
+            return element;
+        },
+        getChildren: () => [
             new vscode.TreeItem('Format Elixir File', vscode.TreeItemCollapsibleState.None),
         ],
     });
