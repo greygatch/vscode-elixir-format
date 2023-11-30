@@ -1,0 +1,42 @@
+{
+    "name": "elixir-format-extension",
+    "displayName": "Elixir Format",
+    "description": "Run 'mix format' on Elixir files.",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:elixirFormat.formatFile"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "elixirFormat.formatFile",
+                "title": "Format Elixir File"
+            }
+        ],
+        "menus": {
+            "explorer/context": [
+                {
+                    "command": "elixirFormat.formatFile",
+                    "group": "2_workspace",
+                    "when": "resourceLangId == elixir"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.65.0",
+        "typescript": "^4.5.5"
+    }
+}
